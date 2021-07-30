@@ -62,4 +62,5 @@ dependencies {
     //okt
     implementation files('libs/open-korean-text-2.3.2-SNAPSHOT.jar')
     implementation 'com.twitter.penguin:korean-text:4.4.4'
+    implementation 'org.scala-lang:scala-library:2.12.4'
 }

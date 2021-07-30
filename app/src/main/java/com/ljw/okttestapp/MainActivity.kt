@@ -3,14 +3,13 @@ package com.ljw.okttestapp
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import com.twitter.penguin.korean.TwitterKoreanProcessorJava
-import com.twitter.penguin.korean.phrase_extractor.KoreanPhraseExtractor
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import org.json.JSONArray
 import org.json.JSONObject
+import org.openkoreantext.processor.OpenKoreanTextProcessorJava
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,7 +17,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 //        val text = "방울 방울 보라색 물 풍선 한가득"
-        val text = "돈을 많이 벌어서 떡볶이를 많이 사먹을거야."
+        val text = "워라밸을 지키기엔 일정이 너무 바빠"
 
         getOktTokenizerText(text.removeSpecialCharacter())
     }
@@ -53,8 +52,8 @@ class MainActivity : AppCompatActivity() {
     /** JAR 사용 어구추출 (단어사전 추가) */
     private fun getOktTokenizerTextFromJAR(text: String): List<String>? {
         //com.ljw.oktTestApp.OktTextExample 참고
-        val tokens = TwitterKoreanProcessorJava.tokenize(text)
-        val phrases = TwitterKoreanProcessorJava.extractPhrases(tokens, true, true)
+        val tokens = OpenKoreanTextProcessorJava.tokenize(text)
+        val phrases = OpenKoreanTextProcessorJava.extractPhrases(tokens, true, true)
 
         return parsingText(phrases)
     }
