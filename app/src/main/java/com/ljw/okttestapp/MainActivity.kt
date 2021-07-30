@@ -17,7 +17,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val text = "방울 방울 보라색 물 풍선 한 가득"
+//        val text = "방울 방울 보라색 물 풍선 한가득"
+        val text = "돈을 많이 벌어서 떡볶이를 많이 사먹을거야."
 
         getOktTokenizerText(text.removeSpecialCharacter())
     }
